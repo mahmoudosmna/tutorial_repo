@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+
+    <!--view_annuale_leave_form-->
+    <record id="view_annuale_leave_form" model="ir.ui.view">
+        <field name="name">view.annuel.leave.form</field>
+        <field name="model">annual.leave</field>
+        <field name="arch" type="xml">
+            <form string="Annuel Leave">
+                <header>
+                    <button name="bntton_submit"
+                            string="Submit"
+                            class="oe_highlight"
+                            states="draft"
+                            type="object"/>
+
+                     <!--bntton_hr_approve-->
+                    <button name="bntton_dept_approve"
+                            string="Approve"
+                            class="oe_highlight"
+                            states="department_manager"
+                            type="object"/>
+
+                     <!--bntton_hr_approve-->
+                    <button name="bntton_hr_approve"
+                            string="Approve"
+                            class="oe_highlight"
+                            states="hr_manager"
+                            type="object"/>
+
+<!--                     &lt;!&ndash;bntton_done&ndash;&gt;-->
+<!--                    <button name="bntton_done"-->
+<!--                            string="Done"-->
+<!--                            class="oe_highlight"-->
+<!--                            states="hr_manager"-->
+<!--                            type="object"/>-->
+
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,department_manager,hr_manager,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h4>
+                            <group>
+                                <field name="employee_id"/>
+                            </group>
+                        </h4>
+                    </div>
+                    <group>
+                        <group>
+                    <!-- <field name="user_id" readonly="1"/>-->
+                            <field name="dept_id"/>
+                            <field name="request_date"/>
+                            <field name="enrollment_join"/>
+
+                        </group>
+                        <group>
+                            <field name="buy_days"/>
+                            <field name="amount"/>
+                             <field name="leave_type_id" domain="[('id', '=', 7)]"/>
+                            <field name="remaining_leaves_from_hr_leave"/>
+<!--                            <field name="remaining_leaves"/>-->
+                            <field name="rest"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+
+    <!--view_annuale_leave_Tree-->
+    <record id="view_annual_tree" model="ir.ui.view">
+        <field name="name">view.annual.leave.tree</field>
+        <field name="model">annual.leave</field>
+        <field name="arch" type="xml">
+            <tree string="Annual Leave">
+                <field name="employee_id"/>
+                <field name="enrollment_join"/>
+                <field name="buy_days"/>
+                <field name="amount"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--action_annual_view-->
+    <record id="action_annual_view" model="ir.actions.act_window">
+        <field name="name">Annual Leave</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">annual.leave</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                create first record...
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_annual_root" name="Annual Leave"/>
+    <!--menu_annual_leave_view-->
+    <menuitem id="menu_annual_leave_view"
+              name="Buy Leave"
+              parent="menu_annual_root"
+              action="action_annual_view"/>
+
+        <menuitem id="menu_annual_leave_view_in_hr_holidays"
+                  name="Buy Leave"
+                  parent="hr_holidays.menu_hr_holidays_my_leaves"
+                  action="action_annual_view"/>
+
+</odoo>
