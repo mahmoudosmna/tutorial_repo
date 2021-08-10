@@ -9,6 +9,7 @@ STATUS = [
     ('department_manager', 'Department Manager'),
     ('hr_manager', 'HR Manager'),
     ('hr_manager', 'HR Manager'),
+    ('hr_manager', 'HR Manager'),
     ('done', 'Done'),
 ]
 
