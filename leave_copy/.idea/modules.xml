@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/annual_leave.iml" filepath="$PROJECT_DIR$/.idea/annual_leave.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../employee_profile/.idea/employee_profile.iml" filepath="$PROJECT_DIR$/../employee_profile/.idea/employee_profile.iml" />
+      <module fileurl="file://$USER_HOME$/odoo-12.0/.idea/odoo-12.0.iml" filepath="$USER_HOME$/odoo-12.0/.idea/odoo-12.0.iml" />
+    </modules>
+  </component>
+</project>
