@@ -51,6 +51,7 @@
                         <group>
                     <!-- <field name="user_id" readonly="1"/>-->
                             <field name="dept_id"/>
+                              <field name="dept_id"/>
                             <field name="request_date"/>
                             <field name="enrollment_join"/>
 
